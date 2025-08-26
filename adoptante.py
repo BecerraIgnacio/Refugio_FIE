@@ -12,6 +12,9 @@ class Adoptante(Persona):
         
     def __str__(self):
         return f'Nombre: {self.nombre}, Apellido: {self.apellido}, DNI: {self.dni}, Tipo de adoptante: {self.tipo_de_adoptante}'
-    
+
+    def adoptados(self):
+        for adoptado in self.adoptados:
+            print(adoptado)
 
 

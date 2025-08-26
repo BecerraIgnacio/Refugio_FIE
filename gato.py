@@ -4,3 +4,4 @@ class Gato(Mascota):
         super().__init__(apodo, fecha_de_ingreso, id)
         self.rehabilitacion = 360
         self.ruido = "Miau"
+        self.tipo = "Gato"

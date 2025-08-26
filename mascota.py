@@ -13,3 +13,5 @@ class Mascota:
             print(f"{self.apodo} dice {self.ruido}")
             return
         print(f"{self.apodo} no fue rehabilitado aun")
+    def __str__(self):
+        print(f"{self.apodo} es un {self.tipo}")
