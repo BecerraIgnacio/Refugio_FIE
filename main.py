@@ -24,8 +24,16 @@ def main():
     refugio.listar_adoptantes()
     refugio.eliminar_adoptante(adoptante1)
     refugio.listar_adoptantes()
+    refugio.agregar_adoptante(adoptante1)
 
+    refugio.agregar_mascota(piolin)
+    refugio.agregar_mascota(mela)
+    refugio.agregar_mascota(krypto)
 
+    refugio.adoptar_mascota(adoptante1, piolin)
+    refugio.adoptar_mascota(adoptante2, mela)
+    refugio.adoptar_mascota(adoptante2, krypto)
+    refugio.listar_adopciones()
 
 
 if __name__ == '__main__':

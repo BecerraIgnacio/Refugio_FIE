@@ -2,14 +2,14 @@ from adoptante import Adoptante
 from persona import Persona
 from transito import Transito
 from mascota import Mascota
+from adopcion import Adopcion
 
 class Refugio:
     def __init__(self):
         self.lista_adoptante = set()
         self.lista_transito = set()
-        self.lista_perros = set()
-        self.lista_gatos = set()
-        self.lista_pajaros =set()
+        self.lista_mascotas = set()
+        self.lista_adopciones = set()
 
     def agregar_adoptante(self, adoptante):
         self.lista_adoptante.add(adoptante)
@@ -21,31 +21,35 @@ class Refugio:
         for adoptante in self.lista_adoptante:
             print(adoptante)
 
-    def agregar_perro(self, perro):
-        self.lista_perros.add(perro)
+    def agregar_mascota(self, mascota):
+        self.lista_mascotas.add(mascota)
 
-    def eliminar_perro(self, perro):
-        self.lista_perros.remove(perro)
+    def eliminar_mascota(self, mascota):
+        self.lista_mascotas.remove(mascota)
 
-    def listar_perro(self):
-        for perro in self.lista_perros:
-            perro.saludar()
+    def listar_mascotas(self):
+        for mascota in self.lista_mascotas:
+            mascota.saludar()
 
-    def agregar_gato(self, gato):
-        self.lista_gatos.add(gato)
 
-    def eliminar_gato(self, gato):
-        self.lista_gatos.remove(gato)
+    def adoptar_mascota(self, adoptante, mascota):
+        if mascota in self.lista_mascotas:
+            if adoptante in self.lista_adoptante:
+                if mascota.is_rehabilitado():
+                    if adoptante.verificar_adoptado():
+                        adoptante.add_adoptado(mascota)
+                        self.eliminar_mascota(mascota)
+                        self.lista_adopciones.add(Adopcion(adoptante, mascota))
+                        return
+                    print("Este adoptante ya adopto su maximo de mascotas.")
+                    return
+                print(f"{mascota.get_apodo()} no fue rehabilitado aun")
+                return
+            print("Este adoptante no pertenece al refugio")
+            return
+        print("Esta mascota no pertenece al refugio")
 
-    def listar_gato(self):
-        for gato in self.lista_gatos:
-            gato.saludar()
-    def agregar_pajaro(self, pajaro):
-        self.lista_pajaros.add(pajaro)
 
-    def eliminar_pajaro(self, pajaro):
-        self.lista_pajaros.remove(pajaro)
-
-    def listar_pajaro(self):
-        for pajaro in self.lista_pajaros:
-            pajaro.saludar()
+    def listar_adopciones(self):
+        for adopcion in self.lista_adopciones:
+            print(adopcion)
