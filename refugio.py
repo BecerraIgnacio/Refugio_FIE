@@ -1,7 +1,3 @@
-from adoptante import Adoptante
-from persona import Persona
-from transito import Transito
-from mascota import Mascota
 from adopcion import Adopcion
 
 class Refugio:
@@ -31,7 +27,6 @@ class Refugio:
         for mascota in self.lista_mascotas:
             mascota.saludar()
 
-
     def adoptar_mascota(self, adoptante, mascota):
         if mascota in self.lista_mascotas:
             if adoptante in self.lista_adoptante:
@@ -48,7 +43,6 @@ class Refugio:
             print("Este adoptante no pertenece al refugio")
             return
         print("Esta mascota no pertenece al refugio")
-
 
     def listar_adopciones(self):
         for adopcion in self.lista_adopciones:

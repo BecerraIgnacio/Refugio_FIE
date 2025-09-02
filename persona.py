@@ -1,4 +1,5 @@
 class Persona:
+
     def __init__(self, nombre, apellido, dni):
         self.nombre = nombre
         self.apellido = apellido
@@ -9,7 +10,9 @@ class Persona:
 
     def get_nombre(self):
         return self.nombre
+
     def get_apellido(self):
         return self.apellido
+
     def get_dni(self):
         return self.dni
